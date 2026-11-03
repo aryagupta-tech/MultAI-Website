@@ -1,20 +1,20 @@
 import { useEffect, useState, type ReactNode } from 'react';
-import { Bookmark, Branch, Check, Download, Message, People } from './Icons';
-import { LogoMark } from './Logo';
+import { Check, Download, Globe, Laptop, Layers, People, Phone, Target } from './Icons';
+import { ANDROID_APK, MAC_DMG, WEB_APP } from './links';
 
 const FEATURES: { icon: ReactNode; title: string; body: string }[] = [
-  { icon: <People />, title: 'Join mid-task', body: 'See the conversation, decisions and current diff the moment you join.' },
-  { icon: <Message />, title: 'Instruct or discuss', body: 'Talk to the agent, or just to your team. Discussion never reaches the agent by accident.' },
-  { icon: <Bookmark />, title: 'Decisions that stick', body: 'Save what the team agreed on. The agent follows it for everyone.' },
-  { icon: <Branch />, title: 'A private worktree per chat', body: 'Every chat works in its own copy. Your checkout is never touched.' },
+  { icon: <People />, title: 'Join from a browser', body: 'Teammates open a link. No install, no API key. Muse Wonder writes them a catch-up brief.' },
+  { icon: <Target />, title: 'Point at the bug', body: 'Click what’s broken and SAM 3.1 outlines it. The agent checks its own fix on the real page.' },
+  { icon: <Layers />, title: 'Agents in parallel', body: '/split runs several agents, each in its own worktree. Switch models and the context comes along.' },
+  { icon: <Phone />, title: 'Control it from your phone', body: 'Pair once, then send prompts and approve each step from Android or a phone browser.' },
 ];
 
 export function Features() {
   return (
     <section id="features" className="section">
       <div className="container">
-        <h2 style={{ maxWidth: 640 }}>Built for working with an agent, together.</h2>
-        <p className="section-lede">Join a teammate’s task without making them start over.</p>
+        <h2 style={{ maxWidth: 640 }}>Get unstuck together.</h2>
+        <p className="section-lede">Your teammate joins the session itself, not a pile of screenshots.</p>
         <div className="features">
           {FEATURES.map((f) => (
             <article key={f.title} className="feature">
@@ -79,7 +79,7 @@ export function Approvals() {
           <ul className="checks">
             <li><Check />One approval, one exact command</li>
             <li><Check />Change an argument, approve again</li>
-            <li><Check />Plan mode blocks writes and commands</li>
+            <li><Check />Teammates’ directions wait for you too</li>
           </ul>
         </div>
         <ApprovalCard />
@@ -89,9 +89,9 @@ export function Approvals() {
 }
 
 const OPTIONS = [
-  { title: 'Provider account', body: 'Sign in with a subscription you already pay for.' },
-  { title: 'API key', body: 'Stored encrypted on your computer, never shown to teammates.' },
-  { title: 'Set up later', body: 'Join sessions and talk with your team right away.' },
+  { title: 'Meta Muse models', body: 'Muse Spark, Muse Wonder and SAM 3.1 through the Meta Model API.' },
+  { title: 'The plan you already pay for', body: 'Your ChatGPT plan, or an OpenAI, Claude, Kimi or compatible API key.' },
+  { title: 'Local models', body: 'Muse Glimmer in Ollama or LM Studio. Nothing leaves your computer.' },
 ];
 
 export function Connect() {
@@ -113,15 +113,27 @@ export function Connect() {
   );
 }
 
+const DOWNLOADS = [
+  { icon: <Laptop />, title: 'macOS', body: 'Apple silicon. On first open, allow it in System Settings → Privacy & Security.', href: MAC_DMG, cta: 'Download', download: true },
+  { icon: <Phone />, title: 'Android', body: 'Follow your sessions, pair as owner, approve from anywhere.', href: ANDROID_APK, cta: 'Get the APK', download: false },
+  { icon: <Globe />, title: 'Browser', body: 'Join a session from a link, on any phone or computer.', href: WEB_APP, cta: 'Open', download: false },
+];
+
 export function GetApp() {
   return (
     <section id="download" className="section cta">
-      <div className="container cta-inner">
-        <span className="app-icon"><LogoMark size={40} /></span>
+      <div className="container">
         <h2>Start a session together.</h2>
-        <p>Everything it needs comes bundled. No setup beyond signing in.</p>
-        <a className="btn btn-primary" href="#download"><Download />Download for macOS</a>
-        <span className="fine">Windows · Linux</span>
+        <div className="downloads">
+          {DOWNLOADS.map((d) => (
+            <a key={d.title} className="download" href={d.href} {...(d.download ? { download: true } : {})}>
+              <span className="feature-icon">{d.icon}</span>
+              <strong>{d.title}</strong>
+              <span>{d.body}</span>
+              <span className="btn btn-secondary btn-sm download-cta">{d.download && <Download size={14} />}{d.cta}</span>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );

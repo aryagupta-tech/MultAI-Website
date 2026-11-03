@@ -79,7 +79,7 @@ h1, h2, h3, p { margin: 0; }
 .avatar-km { background: #4a2f45; color: #f0d6e8; }
 
 /* App window */
-.window { margin-top: 72px; border-radius: 16px 16px 0 0; border: 1px solid var(--border-strong); border-bottom: 0; background: var(--bg); overflow: hidden; }
+.window { margin-top: 72px; border-radius: 16px 16px 0 0; border: 1px solid var(--border-strong); border-bottom: 0; box-shadow: 0 -30px 120px -40px rgba(255, 255, 255, 0.12); background: var(--bg); overflow: hidden; }
 .window-bar { display: flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px; border-bottom: 1px solid var(--border); }
 .window-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--border-strong); }
 .window img { display: block; width: 100%; height: auto; }
@@ -125,3 +125,10 @@ h1, h2, h3, p { margin: 0; }
 
 .footer { border-top: 1px solid var(--border); }
 .footer-inner { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; padding-top: 24px; padding-bottom: 24px; font-size: 13px; color: var(--text-2); }
+
+.downloads { margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; text-align: left; }
+.download { padding: 28px; border-radius: 20px; border: 1px solid var(--border-strong); display: grid; gap: 10px; align-content: start; }
+.download:hover { background: var(--surface); }
+.download strong { font-size: 18px; font-weight: 600; }
+.download > span:not(.feature-icon):not(.download-cta) { font-size: 14px; line-height: 1.55; color: var(--text-2); }
+.download-cta { justify-self: start; margin-top: 8px; gap: 6px; }

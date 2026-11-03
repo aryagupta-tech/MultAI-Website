@@ -1,6 +1,7 @@
 import { Hero } from './components/Hero';
 import { Wordmark } from './components/Logo';
 import { Approvals, Connect, Features, GetApp } from './components/Sections';
+import { GITHUB } from './components/links';
 
 export function App() {
   return (
@@ -10,7 +11,7 @@ export function App() {
         <nav className="nav-links" aria-label="Main">
           <a href="#features">Features</a>
           <a href="#approvals">Approvals</a>
-          <a href="#connect">Your AI</a>
+          <a href="#connect">Models</a>
           <a className="btn btn-secondary btn-sm" href="#download">Download</a>
         </nav>
       </header>
@@ -24,7 +25,7 @@ export function App() {
       <footer className="footer">
         <div className="container footer-inner">
           <Wordmark size={18} />
-          <span>© MultAI</span>
+          <a href={GITHUB}>GitHub</a>
         </div>
       </footer>
     </>
