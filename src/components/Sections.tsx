@@ -3,8 +3,8 @@ import { Check, Download, Globe, Laptop, Layers, People, Phone, Target } from '.
 import { ANDROID_APK, MAC_DMG, WEB_APP } from './links';
 
 const FEATURES: { icon: ReactNode; title: string; body: string }[] = [
-  { icon: <People />, title: 'Join from a browser', body: 'Teammates open a link. No install, no API key. Muse Wonder writes them a catch-up brief.' },
-  { icon: <Target />, title: 'Point at the bug', body: 'Click what’s broken and SAM 3.1 outlines it. The agent checks its own fix on the real page.' },
+  { icon: <People />, title: 'Join from a browser', body: 'Teammates open a link. No install, no API key. A catch-up brief tells them what happened so far.' },
+  { icon: <Target />, title: 'Point at the bug', body: 'Click what’s broken and it’s outlined for the agent. The agent checks its own fix on the real page.' },
   { icon: <Layers />, title: 'Agents in parallel', body: '/split runs several agents, each in its own worktree. Switch models and the context comes along.' },
   { icon: <Phone />, title: 'Control it from your phone', body: 'Pair once, then send prompts and approve each step from Android or a phone browser.' },
 ];
@@ -89,9 +89,8 @@ export function Approvals() {
 }
 
 const OPTIONS = [
-  { title: 'Meta Muse models', body: 'Muse Spark, Muse Wonder and SAM 3.1 through the Meta Model API.' },
-  { title: 'The plan you already pay for', body: 'Your ChatGPT plan, or an OpenAI, Claude, Kimi or compatible API key.' },
-  { title: 'Local models', body: 'Muse Glimmer in Ollama or LM Studio. Nothing leaves your computer.' },
+    { title: 'The plan you already pay for', body: 'Your ChatGPT plan, or any compatible API key.' },
+  { title: 'Local models', body: 'Run a model in Ollama or LM Studio. Nothing leaves your computer.' },
 ];
 
 export function Connect() {

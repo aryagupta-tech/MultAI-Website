@@ -11,7 +11,7 @@ export function App() {
         <nav className="nav-links" aria-label="Main">
           <a href="#features">Features</a>
           <a href="#approvals">Approvals</a>
-          <a href="#connect">Models</a>
+          <a href="#connect">Connect</a>
           <a className="btn btn-secondary btn-sm" href="#download">Download</a>
         </nav>
       </header>
